@@ -72,7 +72,7 @@ namespace bntu.vsrpp.vmisyakova.Core
                 {
                     foreach (XElement childNode in node.Elements())
                     {
-                        if ((!childNodeNames.Contains(childNode.Name.ToString())) && !childNode.Name.ToString().Equals("FIO") && !childNode.Name.ToString().Equals("FullName") 
+                        if ((!childNodeNames.Contains(childNode.Name.ToString())) && !childNode.Name.ToString().Equals("FIO") && !childNode.Name.ToString().Equals("FullName")
                             && !childNode.Name.ToString().Equals("LastName") && !childNode.Name.ToString().Equals("FirstName") && !childNode.Name.ToString().Equals("Surname"))
                         {
                             childNodeNames.Add(childNode.Name.ToString());

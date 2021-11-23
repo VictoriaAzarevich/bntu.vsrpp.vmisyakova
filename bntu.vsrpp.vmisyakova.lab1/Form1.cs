@@ -1,21 +1,21 @@
 ﻿using bntu.vsrpp.vmisyakova.Core;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace bntu.vsrpp.vmisyakova.lab1
 {
     public partial class Form1 : Form
     {
-        private readonly XMLReader reader;
-        private readonly XMLEditor editor;
-        private string path;
+        private readonly XMLReader _reader;
+        private readonly XMLEditor _editor;
+        private string _path;
+        private bool flag1;
+        private bool flag2;
 
         public Form1()
         {
-            reader = new XMLReader();
-            editor = new XMLEditor();
+            _reader = new XMLReader();
+            _editor = new XMLEditor();
             InitializeComponent();
             openFileDialog1.Filter = "XML files(*.xml)|*.xml";
         }
@@ -24,114 +24,116 @@ namespace bntu.vsrpp.vmisyakova.lab1
             if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
             countNodes.Text = "Количество объектов:";
-            path = openFileDialog1.FileName;
-            reader.ReadXML(path);
-            countNodes.Text = countNodes.Text + " " + reader.GetCountNode().ToString();
-            MessageBox.Show("Файл открыт.","Открытие файла", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            _path = openFileDialog1.FileName;
+            _reader.ReadXML(_path);
+            countNodes.Text = countNodes.Text + " " + _reader.GetCountNode().ToString();
+            MessageBox.Show("Файл открыт.", "Открытие файла", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void SetNumericItem()
         {
-            childNodes.Items.Clear();
-            childNodes.Items.AddRange(reader.GetNumericTypeChildNodes().ToArray());
-            childNodes.SelectedItem = childNodes.Items[0];
+            if (flag1 != false || !flag2)
+            {
+                childNodes.Items.Clear();
+                childNodes.Items.AddRange(_reader.GetNumericTypeChildNodes().ToArray());
+                childNodes.SelectedItem = childNodes.Items[0];
+                flag1 = false;
+                flag2 = true;
+            }
         }
 
         private void SetStringItem()
         {
-            childNodes.Items.Clear();
-            childNodes.Items.AddRange(reader.GetStringTypeChildNodes().ToArray());
-            childNodes.SelectedItem = childNodes.Items[0];
+            if (flag1 != true || !flag2)
+            {
+                childNodes.Items.Clear();
+                childNodes.Items.AddRange(_reader.GetStringTypeChildNodes().ToArray());
+                childNodes.SelectedItem = childNodes.Items[0];
+                flag1 = true;
+                flag2 = true;
+            }
+        }
+
+        private void Set()
+        {
+            childNodes_SelectedIndexChanged(null, null);
         }
 
         private void radioButtonGetMaxLength_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonGetMaxLength.Checked == true)
+            if (radioButtonGetMaxLength.Checked != true) return;
+            try
             {
-                try
-                {
-                    SetStringItem();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Set();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void radioButtonGetMinLemgth_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonGetMinLength_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonGetMinLemgth.Checked == true)
+            if (radioButtonGetMinLemgth.Checked != true) return;
+            try
             {
-                try
-                {
-                    SetStringItem();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Set();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void radioButtonGetAverageLength_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonGetAverageLength.Checked == true)
+            if (radioButtonGetAverageLength.Checked != true) return;
+            try
             {
-                try
-                {
-                    SetStringItem();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Set();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void radioButtonGetMaxValue_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonGetMaxValue.Checked == true)
+            if (radioButtonGetMaxValue.Checked != true) return;
+            try
             {
-                try
-                {
-                    SetNumericItem();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Set();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void radioButtonGetMinValue_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonGetMinValue.Checked == true)
+            if (radioButtonGetMinValue.Checked != true) return;
+            try
             {
-                try
-                {
-                    SetNumericItem();
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Set();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void radioButtonGetAverageValue_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonGetAverageValue.Checked == true)
+            if (radioButtonGetAverageValue.Checked != true) return;
+            try
             {
-                try
-                {
-                    SetNumericItem();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Set();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -141,28 +143,33 @@ namespace bntu.vsrpp.vmisyakova.lab1
             result.Text = "Результат:";
             if (radioButtonGetMaxLength.Checked == true)
             {
+                result.Text = result.Text + " " + _reader.GetMaxLength(childNodes.Text);
                 selectedOperation.Text = selectedOperation.Text + " " + radioButtonGetMaxLength.Text;
-                result.Text = result.Text + " " + reader.GetMaxLength(childNodes.Text);
-            } else if(radioButtonGetMinLemgth.Checked == true)
+            }
+            else if (radioButtonGetMinLemgth.Checked == true)
             {
+                result.Text = result.Text + " " + _reader.GetMinLength(childNodes.Text);
                 selectedOperation.Text = selectedOperation.Text + " " + radioButtonGetMinLemgth.Text;
-                result.Text = result.Text + " " + reader.GetMinLength(childNodes.Text);
-            } else if(radioButtonGetAverageLength.Checked == true)
+            }
+            else if (radioButtonGetAverageLength.Checked == true)
             {
+                result.Text = result.Text + " " + _reader.GetAverageLength(childNodes.Text).ToString("0.00");
                 selectedOperation.Text = selectedOperation.Text + " " + radioButtonGetAverageLength.Text;
-                result.Text = result.Text + " " + reader.GetAverageLength(childNodes.Text);
-            } else if(radioButtonGetMaxValue.Checked == true)
+            }
+            else if (radioButtonGetMaxValue.Checked == true)
             {
+                result.Text = result.Text + " " + _reader.GetMaxValue(childNodes.Text);
                 selectedOperation.Text = selectedOperation.Text + " " + radioButtonGetMaxValue.Text;
-                result.Text = result.Text + " " + reader.GetMaxValue(childNodes.Text);
-            } else if(radioButtonGetMinValue.Checked == true)
+            }
+            else if (radioButtonGetMinValue.Checked == true)
             {
+                result.Text = result.Text + " " + _reader.GetMinValue(childNodes.Text);
                 selectedOperation.Text = selectedOperation.Text + " " + radioButtonGetMinValue.Text;
-                result.Text = result.Text + " " + reader.GetMinValue(childNodes.Text);
-            }else if(radioButtonGetAverageValue.Checked == true)
+            }
+            else if (radioButtonGetAverageValue.Checked == true)
             {
+                result.Text = result.Text + " " + _reader.GetAverageValue(childNodes.Text).ToString("0.00");
                 selectedOperation.Text = selectedOperation.Text + " " + radioButtonGetAverageValue.Text;
-                result.Text = result.Text + " " + reader.GetAverageValue(childNodes.Text);
             }
         }
 
@@ -170,55 +177,37 @@ namespace bntu.vsrpp.vmisyakova.lab1
         {
             try
             {
-                editor.CreateNewXMLDoc(path);
+                _editor.CreateNewXMLDoc(_path);
                 MessageBox.Show("Файл отредактирован и сохранен", "Редактирование файла", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Ошибка чтения файла" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "" +
-                    "!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка чтения файла!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+            radioButtonGetMaxValue.Checked = false;
+            radioButtonGetMinValue.Checked = false;
+            radioButtonGetAverageValue.Checked = false;
+            try
+            {
+                SetStringItem();
+            }
+            catch (Exception) { }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+            radioButtonGetMaxLength.Checked = false;
+            radioButtonGetMinLemgth.Checked = false;
+            radioButtonGetAverageLength.Checked = false;
+            try
+            {
+                SetNumericItem();
+            }
+            catch (Exception) { }
         }
     }
 }

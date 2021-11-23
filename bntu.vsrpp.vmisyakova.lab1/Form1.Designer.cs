@@ -33,8 +33,6 @@ namespace bntu.vsrpp.vmisyakova.lab1
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.countNodes = new System.Windows.Forms.Label();
             this.childNodes = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.selectedOperation = new System.Windows.Forms.Label();
             this.result = new System.Windows.Forms.Label();
@@ -45,6 +43,10 @@ namespace bntu.vsrpp.vmisyakova.lab1
             this.radioButtonGetMinValue = new System.Windows.Forms.RadioButton();
             this.radioButtonGetAverageValue = new System.Windows.Forms.RadioButton();
             this.btnEditFile = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOpenFile
@@ -73,34 +75,16 @@ namespace bntu.vsrpp.vmisyakova.lab1
             // childNodes
             // 
             this.childNodes.FormattingEnabled = true;
-            this.childNodes.Location = new System.Drawing.Point(576, 92);
+            this.childNodes.Location = new System.Drawing.Point(786, 70);
             this.childNodes.Name = "childNodes";
             this.childNodes.Size = new System.Drawing.Size(133, 28);
             this.childNodes.TabIndex = 2;
             this.childNodes.SelectedIndexChanged += new System.EventHandler(this.childNodes_SelectedIndexChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(269, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Операции над строковыми данными";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(288, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(263, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Операции над числовыми данными";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(557, 69);
+            this.label3.Location = new System.Drawing.Point(612, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(168, 20);
             this.label3.TabIndex = 12;
@@ -109,7 +93,7 @@ namespace bntu.vsrpp.vmisyakova.lab1
             // selectedOperation
             // 
             this.selectedOperation.AutoSize = true;
-            this.selectedOperation.Location = new System.Drawing.Point(557, 141);
+            this.selectedOperation.Location = new System.Drawing.Point(612, 117);
             this.selectedOperation.Name = "selectedOperation";
             this.selectedOperation.Size = new System.Drawing.Size(165, 20);
             this.selectedOperation.TabIndex = 13;
@@ -118,7 +102,7 @@ namespace bntu.vsrpp.vmisyakova.lab1
             // result
             // 
             this.result.AutoSize = true;
-            this.result.Location = new System.Drawing.Point(557, 165);
+            this.result.Location = new System.Drawing.Point(612, 152);
             this.result.Name = "result";
             this.result.Size = new System.Drawing.Size(78, 20);
             this.result.TabIndex = 14;
@@ -127,7 +111,7 @@ namespace bntu.vsrpp.vmisyakova.lab1
             // radioButtonGetMaxLength
             // 
             this.radioButtonGetMaxLength.AutoSize = true;
-            this.radioButtonGetMaxLength.Location = new System.Drawing.Point(36, 96);
+            this.radioButtonGetMaxLength.Location = new System.Drawing.Point(17, 28);
             this.radioButtonGetMaxLength.Name = "radioButtonGetMaxLength";
             this.radioButtonGetMaxLength.Size = new System.Drawing.Size(231, 24);
             this.radioButtonGetMaxLength.TabIndex = 15;
@@ -139,19 +123,19 @@ namespace bntu.vsrpp.vmisyakova.lab1
             // radioButtonGetMinLemgth
             // 
             this.radioButtonGetMinLemgth.AutoSize = true;
-            this.radioButtonGetMinLemgth.Location = new System.Drawing.Point(36, 127);
+            this.radioButtonGetMinLemgth.Location = new System.Drawing.Point(17, 59);
             this.radioButtonGetMinLemgth.Name = "radioButtonGetMinLemgth";
             this.radioButtonGetMinLemgth.Size = new System.Drawing.Size(227, 24);
             this.radioButtonGetMinLemgth.TabIndex = 16;
             this.radioButtonGetMinLemgth.TabStop = true;
             this.radioButtonGetMinLemgth.Text = "Минимальная длина строки";
             this.radioButtonGetMinLemgth.UseVisualStyleBackColor = true;
-            this.radioButtonGetMinLemgth.CheckedChanged += new System.EventHandler(this.radioButtonGetMinLemgth_CheckedChanged);
+            this.radioButtonGetMinLemgth.CheckedChanged += new System.EventHandler(this.radioButtonGetMinLength_CheckedChanged);
             // 
             // radioButtonGetAverageLength
             // 
             this.radioButtonGetAverageLength.AutoSize = true;
-            this.radioButtonGetAverageLength.Location = new System.Drawing.Point(36, 158);
+            this.radioButtonGetAverageLength.Location = new System.Drawing.Point(17, 89);
             this.radioButtonGetAverageLength.Name = "radioButtonGetAverageLength";
             this.radioButtonGetAverageLength.Size = new System.Drawing.Size(186, 24);
             this.radioButtonGetAverageLength.TabIndex = 17;
@@ -163,7 +147,7 @@ namespace bntu.vsrpp.vmisyakova.lab1
             // radioButtonGetMaxValue
             // 
             this.radioButtonGetMaxValue.AutoSize = true;
-            this.radioButtonGetMaxValue.Location = new System.Drawing.Point(312, 96);
+            this.radioButtonGetMaxValue.Location = new System.Drawing.Point(17, 28);
             this.radioButtonGetMaxValue.Name = "radioButtonGetMaxValue";
             this.radioButtonGetMaxValue.Size = new System.Drawing.Size(205, 24);
             this.radioButtonGetMaxValue.TabIndex = 18;
@@ -175,7 +159,7 @@ namespace bntu.vsrpp.vmisyakova.lab1
             // radioButtonGetMinValue
             // 
             this.radioButtonGetMinValue.AutoSize = true;
-            this.radioButtonGetMinValue.Location = new System.Drawing.Point(312, 127);
+            this.radioButtonGetMinValue.Location = new System.Drawing.Point(17, 59);
             this.radioButtonGetMinValue.Name = "radioButtonGetMinValue";
             this.radioButtonGetMinValue.Size = new System.Drawing.Size(201, 24);
             this.radioButtonGetMinValue.TabIndex = 19;
@@ -187,7 +171,7 @@ namespace bntu.vsrpp.vmisyakova.lab1
             // radioButtonGetAverageValue
             // 
             this.radioButtonGetAverageValue.AutoSize = true;
-            this.radioButtonGetAverageValue.Location = new System.Drawing.Point(312, 158);
+            this.radioButtonGetAverageValue.Location = new System.Drawing.Point(17, 89);
             this.radioButtonGetAverageValue.Name = "radioButtonGetAverageValue";
             this.radioButtonGetAverageValue.Size = new System.Drawing.Size(159, 24);
             this.radioButtonGetAverageValue.TabIndex = 20;
@@ -198,36 +182,64 @@ namespace bntu.vsrpp.vmisyakova.lab1
             // 
             // btnEditFile
             // 
-            this.btnEditFile.Location = new System.Drawing.Point(13, 188);
+            this.btnEditFile.Location = new System.Drawing.Point(14, 207);
             this.btnEditFile.Name = "btnEditFile";
-            this.btnEditFile.Size = new System.Drawing.Size(126, 52);
+            this.btnEditFile.Size = new System.Drawing.Size(146, 52);
             this.btnEditFile.TabIndex = 21;
             this.btnEditFile.Text = "Отредактировать файл";
             this.btnEditFile.UseVisualStyleBackColor = true;
             this.btnEditFile.Click += new System.EventHandler(this.btnEditFile_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButtonGetMaxLength);
+            this.groupBox1.Controls.Add(this.radioButtonGetMinLemgth);
+            this.groupBox1.Controls.Add(this.radioButtonGetAverageLength);
+            this.groupBox1.Location = new System.Drawing.Point(14, 73);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(298, 127);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Операции над строковыми данными";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioButtonGetMaxValue);
+            this.groupBox2.Controls.Add(this.radioButtonGetMinValue);
+            this.groupBox2.Controls.Add(this.radioButtonGetAverageValue);
+            this.groupBox2.Location = new System.Drawing.Point(318, 73);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Size = new System.Drawing.Size(283, 127);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Операции над числовыми данными";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 450);
+            this.ClientSize = new System.Drawing.Size(987, 451);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnEditFile);
-            this.Controls.Add(this.radioButtonGetAverageValue);
-            this.Controls.Add(this.radioButtonGetMinValue);
-            this.Controls.Add(this.radioButtonGetMaxValue);
-            this.Controls.Add(this.radioButtonGetAverageLength);
-            this.Controls.Add(this.radioButtonGetMinLemgth);
-            this.Controls.Add(this.radioButtonGetMaxLength);
             this.Controls.Add(this.result);
             this.Controls.Add(this.selectedOperation);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.childNodes);
             this.Controls.Add(this.countNodes);
             this.Controls.Add(this.btnOpenFile);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "XML Parser";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,8 +251,6 @@ namespace bntu.vsrpp.vmisyakova.lab1
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label countNodes;
         private System.Windows.Forms.ComboBox childNodes;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label selectedOperation;
         private System.Windows.Forms.Label result;
@@ -251,6 +261,8 @@ namespace bntu.vsrpp.vmisyakova.lab1
         private System.Windows.Forms.RadioButton radioButtonGetMinValue;
         private System.Windows.Forms.RadioButton radioButtonGetAverageValue;
         private System.Windows.Forms.Button btnEditFile;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 
