@@ -1,3 +1,2 @@
 # bntu.vsrpp.vmisyakova
-lab01
-XMLParser
+lab01 по дисциплине "Визуальные средства разработки программных приложений. XMLParser.
