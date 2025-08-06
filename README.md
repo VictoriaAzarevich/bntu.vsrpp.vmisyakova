@@ -1,23 +1,26 @@
 # bntu.vsrpp.vmisyakova
-Lab01 по дисциплине "Визуальные средства разработки программных приложений. XMLParser.
-Необходимо прочитать выбранный пользователем xml-файл простой структуры (список объектов) и вывести колчиество данных объектов в файле на экран. Предоставить пользователю возможность выполнения слудющих операций над прочитанными данными:
--	Максимлаьное значение;
--	Минимлаьное значение;
--	Среднее;
--	Средняя длина строки;
--	Минимальная длина строки;
--	Максимальная длина строки.
-При выборе пользователем операции, необходимо выводить список параметров объекта для которых данная операци возможна. После выбора параметра - выводить результат ранее выбранной операции. Параметр может быть в списке доступных, только если он существует у всех объектах, а также имеет одинаковый тип (например параметр score - во всех объектах определен как число). По желанию пользователю необходимо привести объекты в xml документе к единому виду. Т.е. выполнить следующий алгоритм:
-1.	Если у элемента имеется дочерний элемент с именем FIO или FullName, то необходимо разбить данный элемент на отдельные элементы с именами: FirstName, LastName, Surname;
-2.	Создать недостающие дочерние элементы в объектах, для строк указать значение N/A, для числовых элементов - 0;
-3.	Полученный результат записать в файл с именем <имя исходного файла>_output.xml.
-
-Lab02 по дисциплине "Визуальные средства разработки программных приложений. Currency converter.
-1.	Программа должна использовать в своей работе официальные курсы валют взятые с сайта Национального Банка Республики Беларусь.
-2.	Пользователь должен иметь возможность просматривать курсы всех доступных валют
-3.	Программа должна предоставлять пользователю возможность проводить конвертации типа: BYN -> валюта, валюта -> BYN, валюта->валюта (конвертация через BYN)
-4.	По желанию пользователя небоходимо построить график изменения курса за выбранный период, а также определить дату, когда курс был минимальный/максимальный и средний арифметический курс за тот же период.
-
-
-
+**Lab01 — "Visual Tools for Application Development". XML Parser**
+The task is to read a user-selected XML file with a simple structure (a list of objects) and display the number of objects in the file. The user should be able to perform the following operations on the parsed data:
+* Maximum value
+* Minimum value
+* Average value
+* Average string length
+* Minimum string length
+* Maximum string length
+When an operation is selected, the application must show a list of object fields for which the operation is applicable. A field is considered applicable only if it exists in all objects and has the same data type (e.g., the score field must be numeric in all objects).
+Optionally, the user can normalize the structure of the objects in the XML file. This includes:
+1. If an object has a child element named FIO or FullName, split it into FirstName, LastName, and Surname.
+2. Add missing fields in all objects: use "N/A" for strings and 0 for numeric fields.
+3. Save the updated XML content to a new file named <original_filename>_output.xml.
+**Lab02 — "Visual Tools for Application Development". Currency Converter**
+1. The application must use official currency exchange rates obtained from the website of the National Bank of the Republic of Belarus.
+2. Users should be able to view exchange rates for all available currencies.
+3. The application must support the following conversions:
+* BYN → foreign currency
+* Foreign currency → BYN
+* Currency → Currency (via BYN as intermediary)
+4. Optionally, the user can:
+* Generate a chart of currency rate changes over a selected time period
+* Determine the date when the rate was at its minimum/maximum
+* Calculate the average exchange rate for the selected period
 
