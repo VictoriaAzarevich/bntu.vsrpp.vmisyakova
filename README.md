@@ -1,5 +1,5 @@
 # bntu.vsrpp.vmisyakova
-**Lab01 — "Visual Tools for Application Development". XML Parser**
+## **Lab01 — "Visual Tools for Application Development". XML Parser**
 
 The task is to read a user-selected XML file with a simple structure (a list of objects) and display the number of objects in the file. The user should be able to perform the following operations on the parsed data:
 * Maximum value
@@ -16,7 +16,7 @@ Optionally, the user can normalize the structure of the objects in the XML file.
 2. Add missing fields in all objects: use "N/A" for strings and 0 for numeric fields.
 3. Save the updated XML content to a new file named <original_filename>_output.xml.
 
-**Lab02 — "Visual Tools for Application Development". Currency Converter**
+## **Lab02 — "Visual Tools for Application Development". Currency Converter**
 1. The application must use official currency exchange rates obtained from the website of the National Bank of the Republic of Belarus.
 2. Users should be able to view exchange rates for all available currencies.
 3. The application must support the following conversions:
